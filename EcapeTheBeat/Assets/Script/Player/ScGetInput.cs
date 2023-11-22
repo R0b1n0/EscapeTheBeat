@@ -5,11 +5,26 @@ using UnityEngine.InputSystem;
 
 public class ScGetInput : MonoBehaviour
 {
-    [SerializeField] ScMovement moveScript;
+    private ScMovement moveScript;
+    private ScCanon canonScript;
     private Vector2 lStick;
+    private Vector2 RStick;
 
+
+    private void Start()
+    {
+        moveScript = GetComponent<ScMovement>();
+        canonScript = GetComponent<ScCanon>();
+    }
     public void GetLeftStick(InputAction.CallbackContext ctxt)
     {
-        moveScript.GetMovementDirection(ctxt.ReadValue<Vector2>());
+        lStick = ctxt.ReadValue<Vector2>();
+        moveScript.GetMovementDirection(lStick);
+    }
+
+    public void GetRightStick(InputAction.CallbackContext ctxt) 
+    {
+        RStick = ctxt.ReadValue<Vector2>();
+        canonScript.GetAimingDirection(RStick);
     }
 }
