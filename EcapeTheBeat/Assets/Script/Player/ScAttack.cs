@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScCanon : MonoBehaviour
+public class ScAttack : MonoBehaviour
 {
-    [SerializeField] Transform canonTrans;
+    [SerializeField] List<ScCanon> canonList;
     private Vector3 aimingDir;
     private Transform myTrans;
     private float canonAngle;
+    public static playerState myState;
 
     private void Start()
     {
         myTrans = transform;
+        myState = playerState.idle;
     }
 
     private void FixedUpdate()
@@ -29,7 +31,7 @@ public class ScCanon : MonoBehaviour
         if (aimingDir != Vector3.zero)
         {
             GetAngle();
-            myTrans.rotation = Quaternion.Euler(0,0, canonAngle);
+            myTrans.rotation = Quaternion.Euler(0, 0, canonAngle);
         }
     }
 
@@ -40,4 +42,23 @@ public class ScCanon : MonoBehaviour
         if (aimingDir.y < 0)
             canonAngle = 180 - canonAngle;
     }
+
+    public void Attack(bool isAttacking)
+    {
+        if (isAttacking)
+        {
+            foreach (ScCanon canon in canonList)
+            {
+                canon.Shoot();
+            }
+        }
+    }
+
+}
+
+public enum playerState
+{
+    idle, 
+    attacking,
+    onCoolDown
 }

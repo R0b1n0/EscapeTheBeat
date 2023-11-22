@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScMovement : MonoBehaviour
 {
     [SerializeField] float speed; // Unit per seconde
+    [SerializeField] int dashLenght; // Unit per seconde
 
     private Vector3 movementDir;
     private Transform myTrans;
@@ -25,8 +26,16 @@ public class ScMovement : MonoBehaviour
     {
         movementDir = direction.normalized;
     }
+    public void GetDashInstruction(Vector2 direction)
+    {
+        Dash(direction.normalized);
+    }
     private void MoveAround()
     {
         myTrans.position = myTrans.position + (movementDir* translationPerFrame);
+    }
+    private void Dash(Vector3 direction)
+    {
+        myTrans.position = myTrans.position + (direction * dashLenght);
     }
 }
