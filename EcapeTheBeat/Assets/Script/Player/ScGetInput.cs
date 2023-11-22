@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ScGetInput : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] ScMovement moveScript;
+    private Vector2 lStick;
 
-    // Update is called once per frame
-    void Update()
+    public void GetLeftStick(InputAction.CallbackContext ctxt)
     {
-        
+        moveScript.GetMovementDirection(ctxt.ReadValue<Vector2>());
     }
 }
