@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingTime: 0.5
-  bulletPerShoot: 20
-  fireRate: 0.01
+  bulletPerShoot: 25
+  fireRate: 0.005
   lineRenderer: {fileID: 5970026905523591483}
   bulletSpeed: 2

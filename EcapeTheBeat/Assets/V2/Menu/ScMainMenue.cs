@@ -40,6 +40,12 @@ public class ScMainMenue : MonoBehaviour
 
     }
 
+    public void QuitGame()
+    {
+        m_Source.PlayOneShot(m_Clip);
+        Application.Quit();
+    }
+
     public void LoadLevelOne()
     {
         SceneManager.LoadScene("V2");

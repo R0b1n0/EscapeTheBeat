@@ -88,6 +88,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "gameOver",
+            "id": "da92ef55-b4f1-487e-92d9-edde4e3786f1",
+            "actions": [
+                {
+                    "name": "retry",
+                    "type": "Button",
+                    "id": "0cc2e168-5348-40c3-8d37-c02b1aa4b3e1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "toMain",
+                    "type": "Button",
+                    "id": "dc34e30a-dd3f-4fd8-9a0f-57fa07844d64",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "be602beb-f447-4317-8fd0-810413890fbc",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "retry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f6a4ab2c-9a65-4ec0-ae66-294e41fa8079",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "toMain",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
