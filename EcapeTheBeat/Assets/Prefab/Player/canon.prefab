@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4566158642947618192}
   - component: {fileID: 3912143603209503312}
-  - component: {fileID: 638932187804018303}
   m_Layer: 0
   m_Name: canon
   m_TagString: Untagged
@@ -86,20 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &638932187804018303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13226536490439389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea5c939c2b60777458fd000671c2bc94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShootingSpot: {fileID: 3196753933965070384}
-  bullet: {fileID: 7011073760943099379, guid: 0197f508de21a044a8dbee6f410e0c0a, type: 3}
 --- !u!1 &4150884073987705294
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class ScMovement : MonoBehaviour
 {
     [SerializeField] float speed; // Unit per seconde
     [SerializeField] int dashLenght; // Unit per seconde
+    [SerializeField] LineRenderer lineRenderer;
 
     private Vector3 movementDir;
     private Transform myTrans;
@@ -20,6 +21,12 @@ public class ScMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MoveAround();
+        ResizeDashTrail();
+
+    }
+    private void Update()
+    {
+        CheckMapBound();
     }
 
     public void GetMovementDirection(Vector2 direction)
@@ -36,6 +43,29 @@ public class ScMovement : MonoBehaviour
     }
     private void Dash(Vector3 direction)
     {
+        lineRenderer.SetPosition(0,myTrans.position);
         myTrans.position = myTrans.position + (direction * dashLenght);
+        lineRenderer.SetPosition(1, myTrans.position);
+    }
+
+
+    private void CheckMapBound()
+    {
+        if (myTrans.position.x < -23)
+            myTrans.position = new Vector3(-23f, myTrans.position.y,0);
+
+        if (myTrans.position.x > 23)
+            myTrans.position = new Vector3(23f, myTrans.position.y, 0);
+
+        if (myTrans.position.y > 13)
+            myTrans.position = new Vector3(myTrans.position.x, 13, 0);
+
+        if (myTrans.position.y < -13)
+            myTrans.position = new Vector3(myTrans.position.x, -13, 0);
+
+    }
+    private void ResizeDashTrail()
+    {
+        lineRenderer.SetPosition(0, Vector3.Lerp(lineRenderer.GetPosition(0), lineRenderer.GetPosition(1), Time.deltaTime*2) );
     }
 }

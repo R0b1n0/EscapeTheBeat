@@ -43,14 +43,28 @@ public class ScAttack : MonoBehaviour
             canonAngle = 180 - canonAngle;
     }
 
-    public void Attack(bool isAttacking)
+    public void IsAttacking(bool isAttacking)
     {
         if (isAttacking)
         {
-            foreach (ScCanon canon in canonList)
-            {
-                canon.Shoot();
-            }
+            myState = playerState.attacking;
+        }
+        else
+        {
+            myState = playerState.idle;
+        }
+    }
+
+    private void Attack()
+    {
+        switch (myState)
+        {
+            case playerState.attacking:
+                foreach (ScCanon canon in canonList)
+                {
+                    canon.Shoot();
+                }
+                break;
         }
     }
 

@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class ScGetInput : MonoBehaviour
 {
     private ScMovement moveScript;
-    private ScAttack attackScript;
     private Vector2 lStick;
     private Vector2 RStick;
 
@@ -14,7 +13,6 @@ public class ScGetInput : MonoBehaviour
     private void Start()
     {
         moveScript = GetComponent<ScMovement>();
-        attackScript = GetComponent<ScAttack>();
     }
     public void GetLeftStick(InputAction.CallbackContext ctxt)
     {
@@ -27,10 +25,9 @@ public class ScGetInput : MonoBehaviour
     public void GetRightStick(InputAction.CallbackContext ctxt) 
     {
         RStick = ctxt.ReadValue<Vector2>();
-        attackScript.GetAimingDirection(RStick);
     }
 
-    public void GetLeftTrigger(InputAction.CallbackContext ctxt)
+    public void GetSouthButton(InputAction.CallbackContext ctxt)
     {
         if (ctxt.ReadValueAsButton())
         {
@@ -42,12 +39,12 @@ public class ScGetInput : MonoBehaviour
     { 
         if (ctxt.started)
         {
-            attackScript.Attack(true);
+
         }
 
         if (ctxt.canceled)
         {
-            attackScript.Attack(false);
+
         }
     }
 }
